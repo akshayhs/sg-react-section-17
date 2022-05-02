@@ -10,7 +10,7 @@ class SongList extends Component {
 			return (
 				<div className="list-item" key={i}>
 					<h4>{song.title}</h4>
-					<button className="btn btn-primary">Select</button>					
+					<button onClick={() => this.props.selectSong(song)} className="btn btn-primary">Select</button>					
 				</div>
 			)
 		});
@@ -22,9 +22,11 @@ class SongList extends Component {
 }
 
 const mapStateToProps = state => {
+	console.log(state);
 	return {
 		songs: state.songs
 	};
 }
 
 export default connect(mapStateToProps, { selectSong })(SongList);
+ 
